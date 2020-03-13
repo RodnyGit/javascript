@@ -1,0 +1,54 @@
+<div class="text-warning ml-2 mb-2">
+    <h4 class="text-warning"></h4>
+    Bienvenido al Mercado {{loggedUser.nombre}}
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card border-danger bg-dark text-white">
+                <div class="card-header text-success">Productos seleccionados
+                    <div style="position: absolute; top: 4px; right: 8px;">
+                        Total: {{factura}}
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="border border-primary mb-2 d-flex bd-highlight mb-3"
+                        ng-repeat="item in loggedUser.items">
+                        <div class="mt-2 ml-2 mb-2">
+                            nombre: {{item.product.nombre}}<br>
+                            precio: {{item.product.precio}}<br>
+                        </div>
+                        <button ng-click="RemoveFromCart(item)" class="btn btn-dark text-danger border border-danger ml-auto">X</button>
+                    </div>
+                </div>
+                <div clas="card-footer">
+                </div>
+            </div>
+        </div>
+        <div class="border border-danger bg-secondary container col-md-8">
+            <div class="row">
+                <div ng-repeat="item in productList" class="mt-2 mb-3 mr-2 col-md-5">
+                    <div class="card border-danger bg-dark">
+                        <div class="card-header text-success">{{item.distribuidor}}
+                            <button ng-click="AddToCart(item)" type="submit" style="position: absolute;
+                        top: 4px;
+                        right: 8px;"
+                                class="btn btn-sm btn-dark border border-success mb-2 mt-2 ml-2 text-success">+</button>
+                        </div>
+
+                        <div class="card-body text-success">
+                            <h6 class="card-title">Nombre: {{item.nombre}}</h6>
+                            <p class="card-text">
+                                marca: {{item.marca}}<br>
+                                precio: {{item.precio}}<br>
+                                tipo: {{item.tipo}}<br>
+                            </p>
+                        </div>
+                        <div clas="card-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

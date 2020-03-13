@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MiniEcommerce">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mercadillo</title>
+    <link rel="stylesheet" href='bootstrap.css'>
+    <script src='../scripts/angular.1.7.9.min.js'></script>
+    <script src="../scripts/angular-route.min.js"></script>
+    <script src='./appModule.js'></script>
+    <script src='./modules/controllers/route.js'></script>
+    <script src='./modules/controllers/userController.js'></script>
+    <script src='./modules/factories/userFactory.js'></script>
+</head>
+
+<body>
+    <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link " href="#/home.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#/users.html">Users</a>
+        </li>        
+      </ul>
+      {{5+6}}
+    <div ng-view></div>
+</body>
+
+</html>

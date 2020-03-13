@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MiniEcommerce">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mercadillo</title>
+  <link rel="stylesheet" href='bootstrap.css'>
+  <script src='js/jquery-3.4.1.js'></script>
+  <script src="./modules/jquery-ui-1.12.1/jquery-ui.js"></script>
+  <script src='js/angular.1.4.5.js'></script>
+  <script src="js/angular-route.1.4.5.js"></script>  
+  <script src='appModule.js'></script>
+  <script src='./modules/controllers/route.js'></script>
+  <script src='./modules/controllers/userController.js'></script>
+  <script src='./modules/controllers/productController.js'></script>
+  <script src='./modules/factories/userFactory.js'></script>
+  <script src='./modules/factories/productFactory.js'></script>
+  <script src="./modules/ui-sortable-master/src/sortable.js"></script>
+</head>
+
+<body class="bg bg-dark">
+  <div ng-include="'templates/nav.html'"></div>
+
+  <div ng-view></div>
+
+</body>
+<div ng-include="'templates/footer.html'"></div>
+
+</html>

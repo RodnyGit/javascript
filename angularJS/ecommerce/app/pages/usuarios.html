@@ -1,0 +1,47 @@
+<div>
+    <ul class="bg-secondary row container col-md-12">
+        <li ng-repeat="item in userList" class="mt-2 col-md-2">
+            <div class="card border-danger bg-dark mb-3">
+                <div class="card-header text-success">{{item.nacionalidad}}
+                    <button ng-click="DeleteUser(item._id)" type="submit" style="position: absolute;
+                    top: 4px;
+                    right: 8px;" class="btn btn-sm btn-dark border border-danger mb-2 mt-2 ml-2 text-danger">X</button>
+                </div>
+
+                <div class="card-body text-success">
+                    <h6 class="card-title">Oficio: {{item.oficio}}</h6>
+                    <p class="card-text">
+                        nombre: {{item.nombre}}<br>
+                        edad: {{item.edad}}<br>
+                        sexo: {{item.sexo}}<br>
+                    </p>
+                </div>
+                <div clas="card-footer">
+
+                </div>
+            </div>
+        </li>
+    </ul>
+    <form class="bg-secondary row container col-md-12">
+        <div class="form-group row container col-md-2 ml-2 mt-2 border border-danger bg-dark">
+            <input ng-model="user.nombre" type="text"
+                class="form-control mt-3 ml-1 bg-dark border border-danger text-success" placeholder="nombre"
+                id="nombre">
+            <input ng-model="user.edad" type="text"
+                class="form-control mt-1 ml-1 bg-dark border border-danger text-success" placeholder="edad" id="edad">
+            <input ng-model="user.sexo" type="text"
+                class="form-control mt-1 ml-1 bg-dark border border-danger text-success" placeholder="sexo" id="sexo">
+            <input ng-model="user.oficio" type="text"
+                class="form-control ml-1 mt-1 bg-dark border border-danger text-success" placeholder="oficio"
+                id="oficio">
+            <input ng-model="user.nacionalidad" type="text"
+                class="form-control ml-1 mt-1 bg-dark border border-danger text-success" placeholder="nacionalidad"
+                id="nacionalidad">
+            <input ng-model="user.password" type="password"
+                class="form-control ml-1 mt-1 bg-dark border border-danger text-success" placeholder="password"
+                id="password">
+            <button ng-click="AddUser()" type="submit"
+                class="btn ml-2 btn-dark border border-success mb-2 mt-2 ml-2 text-success">Submit</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <button ng-click="showList=!showList" class="btn btn-dark text-danger border border-danger">
+                Show List
+            </button>
+            <ul class="border border-danger bg-secondary" ng-hide="showList">
+                <li ng-repeat="item in productList" class="mt-2 mb-3 mr-2">
+                    <div class="card border-danger bg-dark col-md-5">
+                        <div class="card-header text-success">{{item.distribuidor}}
+                            <button ng-click="DeleteProduct(item._id)" type="submit" style="position: absolute;
+                        top: 4px;
+                        right: 8px;"
+                                class="btn btn-sm btn-dark border border-danger mb-2 mt-2 ml-2 text-danger">X</button>
+                        </div>
+
+                        <div class="card-body text-success">
+                            <h6 class="card-title">Marca: {{item.marca}}</h6>
+                            <p class="card-text">
+                                nombre: {{item.nombre}}<br>
+                                precio: {{item.precio}}<br>
+                                tipo: {{item.tipo}}<br>
+                            </p>
+                        </div>
+                        <div clas="card-footer">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-dark text-danger border border-danger" ng-click="showForm=!showForm">
+                Show Form
+            </button>
+            <form class="bg-secondary border border-danger" ng-hide="showForm">
+                <div class="form-group row ml-2 mr-2 mb-2 mt-2 border border-danger bg-dark">
+                    <input ng-model="product.nombre" type="text"
+                        class="form-control mt-3 ml-1 bg-dark border border-danger text-success" placeholder="nombre"
+                        id="nombre">
+                    <input ng-model="product.marca" type="text"
+                        class="form-control mt-1 ml-1 bg-dark border border-danger text-success" placeholder="marca"
+                        id="edad">
+                    <input ng-model="product.precio" type="text"
+                        class="form-control mt-1 ml-1 bg-dark border border-danger text-success" placeholder="precio"
+                        id="sexo">
+                    <input ng-model="product.tipo" type="text"
+                        class="form-control ml-1 mt-1 bg-dark border border-danger text-success" placeholder="tipo"
+                        id="tipo">
+                    <input ng-model="product.distribuidor" type="text"
+                        class="form-control ml-1 mt-1 bg-dark border border-danger text-success"
+                        placeholder="distribuidor" id="distribuidor">
+                    <button ng-click="AddProduct()" type="submit"
+                        class="btn ml-2 btn-dark border border-success mb-2 mt-2 ml-2 text-success">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

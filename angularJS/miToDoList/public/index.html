@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='ToDoList'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../js/angular.1.7.9.min.js"></script>
+    <script src="../js/angular-local-storage.min.js"></script>
+    <script src="./appModule.js"></script>
+    <script src="./modules/controller/toDoListController.js"></script>
+    <script src="./modules/factories/localStorageFactory.js"></script>
+    <script src="./modules/services/localStorageServ.js"></script>
+    <link rel="stylesheet" href="bootstrap.css">
+    <title>ToDoList</title>
+</head>
+
+<body ng-controller="ToDoListController">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="border border-danger row mt-2">
+                    <h5 class="mt-2 ml-2">Entrar Tarea</h5>
+                    <br>
+                    <form class="mt-2 ml-2 mr-2 mb-2" ng-submit="addActivity()">
+                        <div class="form-group">
+                            <input ng-model="activity.titulo" type="text" class="form-control border border-danger"
+                                id="formGroupExampleInput" placeholder="Titulo">
+                        </div>
+                        <div class="form-group">
+                            <input ng-model="activity.descripcion" type="text" class="form-control border border-danger"
+                                id="formGroupExampleInput2" placeholder="Descripcion">
+                        </div>
+                        <button ng-mouseout="bit=false" ng-mouseover="bit=true"
+                            ng-class="{'btn-info':bit,'btn-success':!bit}" type="submit"
+                            class="btn btn-sm mb-2">Success</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-10 row">
+                <div ng-repeat="item in agenda" class="ml-2 mt-2 col-md-3 card border border-primary mb-3"
+                    style="max-width: 18rem;">
+                    <div class="card-header">Tarea: {{item.titulo}}</div>
+                    <div class="card-body text-primary">
+                        <p class="card-text">Descripcion:<br> {{item.descripcion}}</p>
+                    </div>
+                    <div class="card-footer text-primary">
+                        <button type="button" ng-click="deleteActivity(item.titulo)"
+                            class="btn btn-danger  btn-sm">x</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" ng-click="clear()" class="btn btn-danger btn-sm mb-2 mt-2 ml-2">Borrar Tareas</button>
+    </div>
+</body>
+
+</html>

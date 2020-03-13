@@ -1,0 +1,26 @@
+<div class="col-md-4">    
+    <form class="bg-secondary border border-danger">
+        <div class="form-group row ml-2 mr-2 mb-2 mt-2 border border-danger bg-dark">
+            <input ng-model="user.nombre" type="text"
+                class="form-control mt-3 ml-1 bg-dark border border-danger text-success" placeholder="nombre"
+                id="nombre">
+            <input ng-model="user.edad" type="text"
+                class="form-control mt-1 ml-1 bg-dark border border-danger text-success" placeholder="edad" id="edad">
+            <input ng-model="user.sexo" type="text"
+                class="form-control mt-1 ml-1 bg-dark border border-danger text-success" placeholder="sexo" id="sexo">
+            <input ng-model="user.oficio" type="text"
+                class="form-control ml-1 mt-1 bg-dark border border-danger text-success" placeholder="oficio"
+                id="oficio">
+            <input ng-model="user.nacionalidad" type="text"
+                class="form-control ml-1 mt-1 bg-dark border border-danger text-success" placeholder="nacionalidad"
+                id="nacionalidad">
+            <input ng-model="user.email" type="email"
+                class="form-control ml-1 mt-1 bg-dark border border-danger text-success" placeholder="email" id="email">
+            <input ng-model="user.password" type="password"
+                class="form-control ml-1 mt-1 bg-dark border border-danger text-success" placeholder="password"
+                id="password">
+            <button ng-click="AddUser()" type="submit"
+                class="btn ml-2 btn-dark border border-success mb-2 mt-2 ml-2 text-success">Submit</button>
+        </div>
+    </form>
+</div>
