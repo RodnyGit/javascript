@@ -1,20 +1,38 @@
-const path = require('path');
+//modules
 const express = require('express');
-const app = express();
-const cors = require('cors');
+const path = require('path');
+const mongoose = require('mongoose');
+const passport = require('passport');
+const flash = require('connect-flash');
+const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const session = require('express-session');
 
-//setings
+
+
+//settings
+const app = express();
 app.set('port', process.env.PORT || 3000);
 app.use(cors());
+
+//middlewares
+
+
+//routes
+
+
+
+
 //archivos estaticos
-//console.log(__dirname);
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 //starting server
 const server = app.listen(app.get('port'), () => {
 	console.log('Server en ' + app.get('port'));
 });
-
 //creando e inicializando SocketIo
 const SocketIo = require('socket.io');
 const io = SocketIo.listen(server);
