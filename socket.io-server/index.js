@@ -1,38 +1,45 @@
 //modules
 const express = require('express');
 const path = require('path');
+const ejs = require('ejs');
+const routes = require('./public/routes/routes');
 const mongoose = require('mongoose');
-const passport = require('passport');
-const flash = require('connect-flash');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const session = require('express-session');
+const { url } = require('./public/config/dataBase');
+const cors = require('cors');
+const app = express();
 
-
+//DB Connecion
+mongoose.connect(url, (err) => {
+	useMongoClient: true;
+	if (err) {
+		console.log(err);
+	}
+	console.log('conectado a MongoDB');
+});
 
 //settings
-const app = express();
+//archivos estaticos
+app.use(express.static(path.join(__dirname, '/public')));
+app.set('view engine', 'ejs');
 app.set('port', process.env.PORT || 3000);
-app.use(cors());
 
 //middlewares
-
+app.use(cors());
+app.use(morgan('dev'));
+app.use(cookieParser());
+app.use(bodyParser.urlencoded());
+app.use(routes);
 
 //routes
-
-
-
-
-//archivos estaticos
-app.use(express.static(path.join(__dirname, 'public')));
-
-
 
 //starting server
 const server = app.listen(app.get('port'), () => {
 	console.log('Server en ' + app.get('port'));
 });
+
 //creando e inicializando SocketIo
 const SocketIo = require('socket.io');
 const io = SocketIo.listen(server);
