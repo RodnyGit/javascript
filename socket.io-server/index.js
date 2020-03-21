@@ -6,40 +6,38 @@ const routes = require('./public/routes/routes');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
 const { url } = require('./public/config/dataBase');
 const cors = require('cors');
 const app = express();
 
 //DB Connecion
 mongoose.connect(url, (err) => {
-	useMongoClient: true;
 	if (err) {
 		console.log(err);
 	}
 	console.log('conectado a MongoDB');
 });
 
-//settings
 //archivos estaticos
 app.use(express.static(path.join(__dirname, '/public')));
+
+//settings
 app.set('view engine', 'ejs');
 app.set('port', process.env.PORT || 3000);
 
 //middlewares
+app.use(express.json());
 app.use(cors());
 app.use(morgan('dev'));
 app.use(cookieParser());
-app.use(bodyParser.urlencoded());
 app.use(routes);
-
-//routes
 
 //starting server
 const server = app.listen(app.get('port'), () => {
 	console.log('Server en ' + app.get('port'));
 });
 
+//#region Socket
 //creando e inicializando SocketIo
 const SocketIo = require('socket.io');
 const io = SocketIo.listen(server);
@@ -57,3 +55,4 @@ io.on('connection', (socket) => {
 		io.sockets.emit('tipingFromServ', data);
 	});
 });
+//#endregion

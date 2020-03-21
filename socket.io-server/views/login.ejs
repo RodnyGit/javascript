@@ -17,26 +17,32 @@
                 <h5 class="text-primary">Entrar Usuario</h5>
                 <div class="form-group row mt-2 mr-2 ml-2">
                     <div>
-                        <input type="text" class="text-light form-control border border-primary bg-dark" id="nombre"
-                            placeholder="nombre">
+                        <input type="text" class="text-light form-control border border-primary bg-dark"
+                            id="nombreLogin" placeholder="nombre">
                     </div>
                 </div>
                 <div class="form-group row ml-2">
                     <div>
-                        <input type="email" class="text-light form-control border border-primary bg-dark"
-                            id="staticEmail" placeholder="email">
+                        <input type="email" autocomplete="current-email"
+                            class="text-light form-control border border-primary bg-dark" id="emailLogin"
+                            placeholder="email">
                     </div>
                 </div>
                 <div class="form-group row ml-2">
                     <div>
-                        <input type="password" class="text-light form-control border border-primary bg-dark"
-                            id="inputPassword" placeholder="password">
+                        <input type="password" autocomplete="current-password"
+                            class="text-light form-control border border-primary bg-dark" id="passwordLogin"
+                            placeholder="password">
                     </div>
                 </div>
-                <button type="button" class="btn ml-2 btn-dark border border-success mb-2 mt-2 ml-2 text-danger">Submit</button>
+                <button id="submitBtnLogin" type="button"
+                    class="btn ml-2 btn-dark border border-success mb-2 mt-2 ml-2 text-danger">Submit</button>
             </form>
         </div>
     </div>
+
+    <script src="./src/login.js"></script>
+    <script src="/vendor/axios.js"></script>
 </body>
 
 </html>
