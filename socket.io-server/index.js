@@ -9,6 +9,17 @@ const cookieParser = require('cookie-parser');
 const { url } = require('./public/config/dataBase');
 const cors = require('cors');
 const app = express();
+const reducer = require('./public/redux/reducer.js');
+const createStore = require('./public/redux/redux.js');
+
+//Mi Redux
+const store = createStore(reducer);
+
+app.use((req, res, next) => {
+	res.state = store;	
+	console.log(res.state.getState());
+	next();
+});
 
 //DB Connecion
 mongoose.connect(url, (err) => {

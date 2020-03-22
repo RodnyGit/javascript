@@ -1,4 +1,4 @@
-export function createStore(reducer) {
+function createStore(reducer) {
 	let state = {};
 	const suscribers = []; //Lista de posibles subscriptores
 	const store = {
@@ -11,9 +11,10 @@ export function createStore(reducer) {
 				callback(state);
 			}
 		},
-		suscribe(callback) {
+		subscribe(callback) {
 			suscribers.push(callback);
 		}
 	};
 	return store;
 }
+module.exports = createStore;

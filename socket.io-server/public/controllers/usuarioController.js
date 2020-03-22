@@ -108,7 +108,6 @@ let eliminar = (req, res) => {
 	});
 }; //nombre: req.body.nombre, email: req.body.email, password: req.body.password
 let login = (req, res) => {
-	console.log(req.body);
 	if (Object.keys(req.body).length > 0) {
 		var user = req.body;
 		Usuario.find({ nombre: user.nombre, email: user.email, password: user.password }, (err, user) => {

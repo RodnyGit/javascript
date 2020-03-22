@@ -3,16 +3,16 @@
 
 //nombres de los metodos que inyectaremos en el createStore de forma que
 //estos son los que regulan cual action tiene permitido hacer modificaciones al global state
-export function reducer(state = {}, action) {
+function reducer(state = {}, action) {
 	switch (action.type) {
-		case 'random number':
-			return action.payload;
-		case 'value + 1':
-			return action.payload;
+		case 'logUser':
+			return (state = action.payload);
 		default:
 			return state;
 	}
 }
+
+module.exports = reducer;
 //instanciamos el store para poder hacer subscripciones y dispatch, en este momento ya estamos utilizando el globalState
 // const store = createStore(reducer);
 

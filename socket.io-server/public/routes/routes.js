@@ -11,6 +11,7 @@ app.get('/createUser', (req, res) => {
 	res.render('createUser');
 });
 
-app.use(require('./usuarioRoute'));
+app.use(require('./userRouter'));
+app.use(require('./reduxRouter'));
 
 module.exports = app;
