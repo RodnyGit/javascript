@@ -4,6 +4,10 @@ angular.module('MiniEcommerce').controller('userController', function ($scope, u
 	$scope.GetUser = function () {
 		userFactory.GetUsers().then(function (response) {
 			$scope.userList = response.data.usuariosList;
+			$scope.userList.claves = [];
+			for (var i in $scope.userList[0]) {
+				$scope.userList.claves.push(i);
+			}
 		});
 	};
 	$scope.AddUser = function () {
@@ -29,12 +33,13 @@ angular.module('MiniEcommerce').controller('userController', function ($scope, u
 		});
 	};
 	$scope.LogUser = function () {
+
 		userFactory.Login($scope.user).then(function (response) {
 			userFactory.loggedUser = response.data.user;
 			$scope.loggedUser = userFactory.loggedUser;
 			if (response.data.msj) {
 				$scope.loggedUser = response.data.msj;
-			}
+			}			
 		});
 	};
 	$scope.GetUser();

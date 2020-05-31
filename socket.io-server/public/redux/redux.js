@@ -1,6 +1,6 @@
 function createStore(reducer) {
 	let state = {};
-	const suscribers = []; //Lista de posibles subscriptores
+	let suscribers = []; //Lista de posibles subscriptores
 	const store = {
 		getState() {
 			return { ...state };

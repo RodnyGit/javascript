@@ -7,7 +7,7 @@ export default class productController {
 		$scope.product = {};
 		$scope.loggedUser = $ngRedux.getState().loggedUser;
 		$scope.GetProduct = () => {
-			productFactory.GetProducts().then(function(response) {
+			productFactory.GetProducts().then(function (response) {
 				$scope.productList = response.data.productosList;
 			});
 			if (!$ngRedux.getState().loggedUser) {
@@ -17,19 +17,19 @@ export default class productController {
 			}
 		};
 		$scope.AddProduct = () => {
-			productFactory.AddProduct($scope.product).then(function(response) {
+			productFactory.AddProduct($scope.product).then(function (response) {
 				$scope.GetProduct();
 				$scope.product = {};
 			});
 		};
 		$scope.UpdateProduct = (id) => {
-			productFactory.UpdateProduct(id, $scope.product).then(function(response) {
+			productFactory.UpdateProduct(id, $scope.product).then(function (response) {
 				$scope.GetProduct();
 				$scope.product = {};
 			});
 		};
 		$scope.DeleteProduct = (id) => {
-			productFactory.DeleteProduct(id).then(function(response) {
+			productFactory.DeleteProduct(id).then(function (response) {
 				$scope.GetProduct();
 			});
 		};

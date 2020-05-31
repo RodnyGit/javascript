@@ -13,23 +13,6 @@ function reducer(state = {}, action) {
 }
 
 module.exports = reducer;
-//instanciamos el store para poder hacer subscripciones y dispatch, en este momento ya estamos utilizando el globalState
-// const store = createStore(reducer);
 
-// function mostrar() {
-// 	const state = store.getState();
-// 	console.log(state);
-// }
-//suscrbimos el modulo mostrar para que nos lleguen actualizaciones cada vez k se hagan cambios en el globalState
-// store.suscribe(mostrar);
 
-//Creamos nuestro primer accion. k vendria siendo el metodo que realiza modificaciones sobre el globalState
-// setInterval(() => {
-// 	store.dispatch({
-// 		type: 'random number',
-// 		payload: {
-// 			value: Math.random()
-// 		}
-// 	});
-// }, 3000);
-// let num = 0;
+

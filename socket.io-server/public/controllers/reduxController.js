@@ -1,5 +1,6 @@
 let distpatch = (req, res) => {
-	console.log(req.body);
+	console.log('body del dispatch en el controller ');
+	console.log(req.body)
 	res.state.dispatch(req.body);
 	return res.status(200).json({
 		ok: true,
@@ -13,6 +14,9 @@ let getState = (req, res) => {
 	});
 };
 let subscribe = (req, res) => {
+	console.log('body del subscribe en el controller ');
+	console.log(req.body);
+	res.state.subscribe(req.body);
 	return res.status(200).json({
 		ok: true,
 		state: res.state

@@ -1,5 +1,3 @@
-console.log(io());
-
 //Dom Selectors
 let actions = document.getElementById('actions');
 let messages = document.getElementById('messages');
@@ -9,6 +7,7 @@ let sendBtn = document.getElementById('sendBtn');
 
 async function takeUSer() {
 	axios.get('/getState').then((res) => {
+		console.log(res);
 		senderId.innerHTML = res.data.state.value[0].nombre;
 	});
 }

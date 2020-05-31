@@ -7,7 +7,7 @@ export default class userController {
 		$scope.user = {};
 		$scope.loggedUser = $ngRedux.getState().loggedUser;
 		$scope.GetUser = () => {
-			userFactory.GetUsers().then(function(response) {
+			userFactory.GetUsers().then(function (response) {
 				$scope.userList = response.data.usuariosList;
 				console.log($scope.userList);
 			});
@@ -17,8 +17,8 @@ export default class userController {
 				$location.path('/');
 			}
 		};
-		$scope.AddUser = function() {
-			userFactory.AddUser($scope.user).then(function(response) {
+		$scope.AddUser = function () {
+			userFactory.AddUser($scope.user).then(function (response) {
 				$scope.GetUser();
 				$scope.user = {};
 				if (!response.data.ok) {
@@ -26,19 +26,19 @@ export default class userController {
 				}
 			});
 		};
-		$scope.UpdateUser = function(id) {
-			userFactory.UpdateUser(id, user).then(function(response) {
+		$scope.UpdateUser = function (id) {
+			userFactory.UpdateUser(id, user).then(function (response) {
 				$scope.GetUser();
 				$scope.user = {};
 			});
 		};
-		$scope.DeleteUser = function(id) {
-			userFactory.DeleteUser(id).then(function(response) {
+		$scope.DeleteUser = function (id) {
+			userFactory.DeleteUser(id).then(function (response) {
 				$scope.GetUser();
 			});
 		};
-		$scope.LogUser = function() {
-			userFactory.Login($scope.user).then(function(response) {
+		$scope.LogUser = function () {
+			userFactory.Login($scope.user).then(function (response) {
 				userFactory.loggedUser = response.data.user;
 				$ngRedux.dispatch({ type: 'logUser', payload: userFactory.loggedUser });
 				$scope.loggedUser = $ngRedux.getState().loggedUser;
