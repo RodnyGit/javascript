@@ -18,12 +18,12 @@ const createStore = require('./public/redux/redux.js');
 const store = createStore(reducer);
 
 app.use((req, res, next) => {
-	res.state = store;	
+	res.state = store;
 	next();
 });
 
 //DB Connecion
-mongoose.connect(url, (err) => {
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
 	if (err) {
 		console.log(err);
 	}
