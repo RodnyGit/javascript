@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de administración</title>
+    <link rel="stylesheet" href="/vendor/bootstrap.css">
+</head>
+
+<body class="bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-primary border border-primary rounded bg-dark">
+        <a class="navbar-brand" href="/">Inicio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/instancias">Instancias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Crear Campaña</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/reglas">Reglas</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <script src="/vendor/axios.js"></script>
+    <script src="./src/campagnas.js"></script>
+</body>
+
+</html>
