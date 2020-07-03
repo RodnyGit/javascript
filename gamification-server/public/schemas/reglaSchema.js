@@ -9,6 +9,14 @@ var reglaSchema = new Schema({
     data: {
         type: String,
         required: true
+    },
+    descripcion: {
+        type: String,
+        required: true
+    },
+    config: {
+        type: Array,
+        required: true
     }
 });
 

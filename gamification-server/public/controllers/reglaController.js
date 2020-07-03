@@ -18,7 +18,9 @@ let agregar = (req, res) => {
     // create a new Regla
     let newRegla = new Regla({
         nombre: req.body.nombre,
-        data: req.body.data
+        data: req.body.data,
+        descripcion: req.body.descripcion,
+        config: req.body.config
     });
     newRegla.save((err, Regla) => {
         if (err) {
@@ -58,6 +60,8 @@ let actualizar = (req, res) => {
         }
         regla.nombre = req.body.nombre;
         regla.data = req.body.data;
+        regla.descripcion = req.body.descripcion;
+        regla.config = req.body.config;
         regla.save((err, updatedRegla) => {
             if (err) {
                 return res.status(400).json({

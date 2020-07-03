@@ -23,7 +23,7 @@ let calcular = (req, res) => {
             DataList.forEach(data => {
                 let reglasNivel = [];
                 let newData = JSON.parse(JSON.stringify(data));
-                let points = 0
+                let points = 0;
                 ReglasList.forEach(regla => {
                     if (regla.nivel == data.nivel) {
                         reglasNivel.push(regla);
@@ -64,6 +64,18 @@ let calcular = (req, res) => {
         });
     });
 };
+
+
+function func1(params) {
+    let points = 0;
+    let stars = 0;
+    points = Math.trunc(params.data.x / 10);
+    if (params.config.y < params.data.y) {
+        stars = Math.trunc(params.data.y / params.config.y);
+    };
+    let score = { points: points, stars: stars };
+    return score;
+}
 
 module.exports = {
     calcular

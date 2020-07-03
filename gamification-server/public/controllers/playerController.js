@@ -160,25 +160,31 @@ let notificarEvento = (req, res) => {
 										err
 									});
 								}
-								var campagnaFounded = null;
 								//filtrando campañas por id y guardandolas para luego
-								campagnasIdArray.forEach(campagnaId => {
-									campagnaFounded = campagnasAll.find(campagna => {
-										return campagna._id = campagnaId;
-									})
-									if (campagnaFounded) {
-										campagnas.push(campagnaFounded);
-									}
-								});
+
+								for (let index = 0; index < campagnasIdArray.length; index++) {
+									let campagnaId = campagnasIdArray[index];
+									const found = campagnasAll.find(campagna => {
+										return String(campagna._id) == String(campagnaId);
+									});
+									campagnas.push(found);
+								}
+
 								//identificando que regla pertenece a cada campaña para luego utilizarla en la acumulacion
 								campagnas.forEach(campagna => {
 									var regla = reglasAll.find(regla => {
-										return regla._id = campagna.reglaId;
+										return String(regla._id) == String(campagna.reglaId);
 									})
 
 									var params = { data: newData.data, config: campagna.config }
 									var func = eval('(' + regla.data + ')')
-									newData.score.points += func(params.data, params.config ? params.config : null);
+									var score = func(params)
+									console.log(score);
+									for (const key in score) {
+										if (score.hasOwnProperty(key)) {
+											newData.score[key] += score[key];
+										}
+									}
 								});
 								//actualizacion del score del jugador
 								Player.findById(newData._id, (err, player) => {
@@ -205,6 +211,10 @@ let notificarEvento = (req, res) => {
 										});
 									});
 								});
+								// return res.status(200).json({
+								// 	ok: true,
+								// 	msj: "prueba"
+								// });
 							});
 						});
 					})
