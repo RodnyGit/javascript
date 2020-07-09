@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat con socket</title>
+    <link rel="stylesheet" href="/vendor/bootstrap.css">
+</head>
+
+<body class="bg-dark">
+    <div class="col-md-5 mt-5 border border-primary">
+        <div id="comments" class="border border-primary mt-2">
+            <div id="actions" class="ml-2 text-light">...tiping</div>
+            <div id="messages" class="ml-2 mt-2 mb-2 text-light">Comments:</div>
+        </div>
+        <div class="border mt-2 mb-2 border-primary">
+            <div class="col">
+                <label class="form-control mt-3 bg-dark text-light border border-primary" id="senderId"
+                    placeholder="ID"> ID</label>
+            </div>
+            <div class="col">
+                <textarea class="form-control mt-3 bg-dark text-light border border-primary" id="textareaMsj"
+                    style="resize: none;" placeholder="Comment"></textarea>
+            </div>
+            <button id="sendBtn"
+                class="btn ml-2 btn-dark border border-success mb-2 mt-2 ml-2 text-warning">send</button>
+        </div>
+    </div>
+
+
+    <!-- Scripts -->
+    <script src="/vendor/axios.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./src/chat.js"></script>
+</body>
+
+</html>
