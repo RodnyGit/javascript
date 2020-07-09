@@ -1,0 +1,10 @@
+.git/
+.history/
+build/
+documentos/
+node_modules/
+web_service/
+.gitignore
+.jsbeautifyrc
+mongo.bat
+docker-compose.yml
