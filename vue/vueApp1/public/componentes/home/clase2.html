@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendiendo Vue</title>
+    <link rel="stylesheet" href="../../vendor/bootstrap.css">
+
+</head>
+
+<body class="bg-dark text-warning ml-3 mt-2">
+    <a class="btn btn-danger" href="/">home</a>
+
+    <div id="app">
+        <div>
+            <div :class="['ml-2','mt-2','md-2','mr-2', color,'text-white']">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae nisi sed veritatis, expedita veniam
+                    deserunt
+                    natus minima porro dignissimos ut dolorem dolore, illo facere modi maxime saepe dolores voluptatibus
+                    laboriosam.
+                </p>
+            </div>
+        </div>
+        <button :class="['btn','btn-danger']" @click="randomFondo"> Cambiar fondo</button>
+
+
+
+    </div>
+    <script src="../../vendor/vue.js"></script>
+    <script src="../../componentes/home/clase2.js"></script>
+</body>
+
+</html>

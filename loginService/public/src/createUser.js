@@ -7,6 +7,13 @@ let grupo = document.getElementById('grupo');
 let submitBtn = document.getElementById('submitBtn');
 
 submitBtn.addEventListener('click', () => {
+	console.log({
+		nombre: nombre.value,
+		password: password.value,
+		pwstId: pwstId.value,
+		tipo: tipo.value,
+		grupo: grupo.value
+	});
 	axios
 		.post('/usuario', {
 			nombre: nombre.value,

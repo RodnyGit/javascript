@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendiendo Vue</title>
+    <link rel="stylesheet" href="../../vendor/bootstrap.css">
+
+</head>
+
+<body class="bg-dark text-warning ml-3 mt-2">
+    <a class="btn btn-danger" href="/">home</a>
+
+    <div class="container" id="app">
+        <h3>Ejemplo con texto</h3>
+        <hr>
+
+        <h4>Mensaje: {{msj}}</h4>
+        <h4>Invertido: {{invertir}}</h4>
+        <input class="bg-dark text-light" type="text" v-model="msj">
+        <hr>
+        <h3>Ejemplo con barras de progreso</h3>
+        <hr>
+        <div class="progress">
+            <!-- style="width: 25%" -->
+            <div :class="['progress-bar', 'progress-bar-striped', fondoBarra]" role="progressbar"
+                :style="{'width':contador+'%'}" :aria-valuenow=[contador] aria-valuemin="0" aria-valuemax="100">
+                {{calcular}}%</div>
+        </div>
+        <hr>
+        <button class="btn btn-success btn-sm" @click="start">start</button>
+        <button class="btn btn-danger btn-sm ml-1" @click="stop">stop</button>
+
+    </div>
+    <script src="../../vendor/vue.js"></script>
+    <script src="../../componentes/home/clase3.js"></script>
+</body>
+
+</html>

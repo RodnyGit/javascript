@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendiendo Vue</title>
+    <link rel="stylesheet" href="../../vendor/bootstrap.css">
+
+</head>
+
+<body class="bg-dark text-warning ml-3 mt-2">
+    <a class="btn btn-danger" href="/">home</a>
+
+    <div id="app">
+        <h2>{{titulo}}</h2>
+        <h4>Cantidad total de vichos: {{sumarVichos}}</h4>
+        <h5>
+            <ul>
+                <li v-for="vicho of animales" v-if="vicho.cantidad>0">
+                    ----------------------- <br>
+                    Raza: {{vicho.raza}}<br>
+                    Cantidad: {{vicho.cantidad}}
+                    <button class="btn btn-primary border-danger" @click="vicho.cantidad++">+</button><br>
+                    -----------------------<br>
+                </li>
+            </ul>
+            agregar vicho <br>
+            <input class="bg-dark" type="text" placeholder="Raza" v-model="nuevoVichoRaza"><br>
+            <input class="bg-dark" type="text" placeholder="Cantidad" v-model="nuevoVichoCantidad"
+                @keyup.enter="agregarFruta"><br>
+        </h5>
+        <button class="btn btn-success border-danger" @click="agregarFruta">Agregar</button>
+    </div>
+
+    <script src="../../vendor/vue.js"></script>
+    <script src="../../componentes/home/clase1.js"></script>
+</body>
+
+</html>

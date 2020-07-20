@@ -16,6 +16,7 @@ submitBtnLogin.addEventListener('click', () => {
 			pwstId: pwstIdLogin.value
 		})
 		.then((response) => {
+			console.log(response.data);
 			if (response.data.user) {
 				axios
 					.post('/distpatch', {
@@ -24,7 +25,9 @@ submitBtnLogin.addEventListener('click', () => {
 					})
 					.then(() => {
 						axios.get('/getState').then((res) => {
-							console.log(res.data.state.value);
+							if (res.data.state.value) {
+								console.log(res.data.state.value);
+							}
 						});
 					});
 			}

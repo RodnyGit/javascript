@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendiendo Vue</title>
+    <link rel="stylesheet" href="../../vendor/bootstrap.css">
+
+</head>
+
+<body class="bg-dark text-warning ml-3 mt-2">
+    <a class="btn btn-danger" href="/">home</a>
+
+    <div class="container" id="app">
+        {{texto}} <br>
+        {{numero}} <br>
+        <button class="btn btn-success" @click="numero++">sumar</button> <br>
+        <hr>
+        <button class="btn btn-danger" @click="destroy">destruir</button> <br>
+
+    </div>
+    <script src="../../vendor/vue.js"></script>
+    <script src="../../componentes/home/clase4.js"></script>
+</body>
+
+</html>
