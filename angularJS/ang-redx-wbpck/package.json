@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "angular": "^1.7.9",
+    "angular": "^1.8.3",
     "axios": "^0.19.2",
     "ng-redux": "^4.4.1",
     "redux": "^4.0.5",
